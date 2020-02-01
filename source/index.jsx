@@ -1,11 +1,12 @@
 import React from 'react'
-import { render } from 'react-router-dom'
-import App from './app'
+import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import App from './app'
 
-render(
+const Client = () => (
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
-  document.getElementById('render_target')
+  </BrowserRouter>
 )
+
+render(<Client />, document.getElementById('render_target'))

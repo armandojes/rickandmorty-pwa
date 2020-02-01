@@ -1,10 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
+// importar paginas
+import Home from './pages/home'
+
 const App = () => (
-  <div>
-    hello aplication
-  </div>
+  <Switch>
+    <Route path='/' exact component={Home} />
+  </Switch>
 )
 
 export default App
