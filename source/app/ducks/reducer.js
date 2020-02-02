@@ -4,9 +4,11 @@ import { combineReducers } from 'redux'
 
 // reducers
 import character from './character'
+import episode from './episode'
 
 export default combineReducers(
   {
-    character
+    character,
+    episode
   }
 )
