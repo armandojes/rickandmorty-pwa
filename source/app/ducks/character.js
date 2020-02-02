@@ -1,5 +1,5 @@
 import { createDuck } from 'redux-duck'
-import api from 'helpers/api'
+import { getCharacter } from 'rickmortyapi'
 
 const duck = createDuck('character')
 
@@ -15,8 +15,8 @@ export const setError = duck.createAction(SET_ERROR)
 
 // creadores de acciones asyncronos
 export const loadCharacter = id => async dispatch => {
-  const response = await api.characters.getSingle(id)
-  console.log(response)
+  const response = await getCharacter(parseInt(id))
+  dispatch(setCharacter(response))
 }
 
 // estado inicial 
@@ -37,6 +37,7 @@ export default duck.createReducer({
   [SET_CHARACTER]: (state, { payload }) => {
     return {
       ...state,
+      loading: false,
       data: payload
     }
   },
