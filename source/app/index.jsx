@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 // importar paginas
 import Home from './pages/home'
 import Episode from './pages/episode'
-import Profile from './pages/profile'
+import Character from './pages/character'
 import Result from './pages/result'
 
 // router
@@ -16,7 +16,7 @@ const App = () => (
     <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/episode/:id' exact component={Episode} />
-      <Route path='/profile/:id' exact component={Profile} />
+      <Route path='/character/:id' exact component={Character} />
       <Route path='/result' exact component={Result} />
     </Switch>
   </>

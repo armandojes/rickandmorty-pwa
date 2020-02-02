@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Profile = () => (
+const Character = () => (
   <div>
     hello profile
   </div>
 )
 
-export default Profile
+export default Character
