@@ -3,10 +3,10 @@
 import { combineReducers } from 'redux'
 
 // reducers
-import profile from './profile'
+import character from './character'
 
 export default combineReducers(
   {
-    profile
+    character
   }
 )

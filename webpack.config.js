@@ -45,7 +45,8 @@ const config = {
     alias: {
       hooks: path.resolve(__dirname, './source/app/hooks'),
       helpers: path.resolve(__dirname, './source/app/helpers'),
-      components: path.resolve(__dirname, './source/app/components')
+      components: path.resolve(__dirname, './source/app/components'),
+      ducks: path.resolve(__dirname, './source/app/ducks')
     }
   },
   plugins: [
@@ -53,7 +54,7 @@ const config = {
       filename: 'styles.css'
     }),
     new webpack.DefinePlugin({
-      IS_PRODUCTION: process.env.NODE_ENV === 'production'
+      isProduction: process.env.NODE_ENV === 'production'
     })
   ],
   target: 'web'
