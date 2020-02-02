@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadCharacter } from 'ducks/character'
+import View from './view.jsx'
 
 const Character = () => {
   const { id } = useParams()
@@ -12,12 +13,12 @@ const Character = () => {
     dispatch(loadCharacter(id))
   }, [])
 
-  console.log('render')
-
   return (
-    <div>
-      hello profile
-    </div>
+    <View
+      data={data}
+      loading={loading}
+      error={error}
+    />
   )
 }
 

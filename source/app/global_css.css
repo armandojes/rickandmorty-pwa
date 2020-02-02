@@ -1,7 +1,11 @@
 /* css de alcanze global */
+:root {
+  --shell-color: #eaeaea;
+}
 * {
   box-sizing: border-box;
 }
 body {
   padding: 0px;
+  font-family: 'Gloria Hallelujah', cursive; 
 }
