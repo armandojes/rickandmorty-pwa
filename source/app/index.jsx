@@ -1,5 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import Header from 'components/header'
+
+import 'normalize.css'
+import './global_css'
 
 // importar paginas
 import Home from './pages/home'
@@ -10,9 +14,7 @@ import Result from './pages/result'
 // router
 const App = () => (
   <>
-    <header>
-      hello header
-    </header>
+    <Header />
     <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/episode/:id' exact component={Episode} />

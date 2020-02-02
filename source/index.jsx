@@ -9,7 +9,7 @@ import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './app/ducks/reducer'
 
-// create store
+// creando el store
 // isProduction varible defined from webpack
 // eslint-disable-next-line no-undef
 const enhancer = isProduction
