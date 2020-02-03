@@ -23,6 +23,7 @@ const Result = () => {
         error={error}
         currentPage={currentPage}
         items={items}
+        pages={pages}
       />
     )
   } else {

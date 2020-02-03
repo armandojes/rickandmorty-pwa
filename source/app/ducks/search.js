@@ -27,8 +27,8 @@ const setPages = duck.createAction(SET_PAGES)
 export const searchEpisodes = () => async (dispatch, getState) => {
   dispatch(setLoading())
   const state = getState()
-  const query = state.search.query
-  const response = await getEpisode({ name: query })
+  const { query, currentPage } = state.search
+  const response = await getEpisode({ name: query, page: currentPage })
   if (response.error) {
     dispatch(setError(response.error))
   } else {

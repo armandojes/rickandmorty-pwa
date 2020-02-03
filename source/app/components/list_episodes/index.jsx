@@ -2,17 +2,16 @@ import React from 'react'
 import propTypes from 'prop-types'
 import style from './style'
 import Container from 'components/Container'
-import Character from 'components/character'
+import Episode from 'components/episode'
 import Paginate from 'components/paginate'
 
-const ListCharacters = props => {
+const ListEpisodes = props => {
   if (props.loading) {
     return (
       <Container className={style.container}>
-        <Character loading={props.loading} />
-        <Character loading={props.loading} />
-        <Character loading={props.loading} />
-        <Character loading={props.loading} />
+        <Episode loading={props.loading} />
+        <Episode loading={props.loading} />
+        <Episode loading={props.loading} />
       </Container>
     )
   }
@@ -20,7 +19,7 @@ const ListCharacters = props => {
     <Container>
       <div className={style.container}>
         {props.items.map(item =>
-          <Character
+          <Episode
             key={item.id}
             loading={props.loading}
             {...item}
@@ -35,10 +34,11 @@ const ListCharacters = props => {
   )
 }
 
-ListCharacters.propTypes = {
+ListEpisodes.propTypes = {
   loading: propTypes.bool,
   items: propTypes.array,
   pages: propTypes.number,
   currentPage: propTypes.number
 }
-export default ListCharacters
+
+export default ListEpisodes
