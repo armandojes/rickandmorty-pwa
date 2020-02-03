@@ -1,0 +1,16 @@
+.filter_type_content{
+  padding: 10px 0px;
+  display: flex;
+  font-weight: bold;
+}
+.option{
+  margin-left: 20px;
+  font-weight: normal;
+  cursor: pointer;
+}
+.option_selected{
+  border-bottom: 2px solid red;
+}
+.option:hover{
+  transform: scale(1.1);
+}

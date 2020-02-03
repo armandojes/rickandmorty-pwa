@@ -5,7 +5,7 @@ const duck = createDuck('episode')
 
 // tipos de acciones
 const SET_LOADING = duck.defineType('SET_LOADING')
-const SET_EPISODE = duck.defineType('SET_CHARACTER')
+const SET_EPISODE = duck.defineType('SET_EPISODE')
 const SET_ERROR = duck.defineType('SET_ERROR')
 
 // creadores de acciones
