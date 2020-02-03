@@ -27,7 +27,10 @@ const ListCharacters = props => {
           />
         )}
       </div>
-      <Paginate />
+      <Paginate 
+        pages={5}
+        currentPage={2}
+      />
     </Container>
   )
 }

@@ -1,0 +1,25 @@
+.paginate_content{
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 20px 0px;
+}
+.arrow_navigation{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: all 200ms;
+}
+.arrow_navigation_selected{
+  background: #04a7bc;
+}
+.arrow_navigation:hover{
+  transform: scale(1.1);
+  border: 1px solid #04a7bc
+}
