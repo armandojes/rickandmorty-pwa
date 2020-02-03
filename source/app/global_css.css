@@ -9,3 +9,6 @@ body {
   padding: 0px;
   font-family: 'Gloria Hallelujah', cursive; 
 }
+img {
+  max-width: 100%;
+}

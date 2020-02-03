@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { searchEpisodes, searchCharacter } from 'ducks/search'
+import ListCharacters from 'components/list_characters'
+import ListEpisodes from 'components/list_episodes'
 
 const Result = () => {
   const { loading, type, error, currentPage, items, filters } = useSelector(state => state.search)
@@ -14,22 +16,25 @@ const Result = () => {
     }
   }, [type, filters])
 
-  if (loading) {
-    return 'loading'
+  if (type === 'episode') {
+    return (
+      <ListEpisodes
+        loading={loading}
+        error={error}
+        currentPage={currentPage}
+        items={items}
+      />
+    )
+  } else {
+    return (
+      <ListCharacters
+        loading={loading}
+        error={error}
+        currentPage={currentPage}
+        items={items}
+      />
+    )
   }
-
-  if (error) {
-    return error
-  }
-
-  return (
-    <div>
-      <h1>{currentPage}</h1>
-      <div>
-        {items.map(item => <div key={item.id}>{item.name}</div>)}
-      </div>
-    </div>
-  )
 }
 
 export default Result

@@ -56,7 +56,7 @@ const initialState = {
   loading: false,
   items: [],
   error: false,
-  type: 'episode',
+  type: 'character',
   filters: {
     status: 'all',
     gender: 'all',

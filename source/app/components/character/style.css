@@ -1,0 +1,57 @@
+.content {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 25%;
+  padding: 10px;
+}
+.body {
+  min-height: 100px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 5px 5px 15px grey;
+  transition: all 200ms;
+}
+.body:hover {
+  transform: scale(1.03);
+  border: 1px solid #00b0c8
+}
+.body_shell{
+  border: none;
+  box-shadow: unset;
+}
+.name {
+  text-align: center;
+  font-size: 1.1em;
+  color: #04a7bc;
+}
+.picture_shell {
+  width: 100%;
+  height: 150px;
+  background-color: var(--shell-color);
+}
+.name_shell{
+  margin-top: 20px;
+  height: 30px;
+  width: 100%;
+  background-color: var(--shell-color);
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    width: 33%;
+  }
+  .name {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 500px) {
+  .content {
+    width: 50%;
+  }
+  .name {
+    font-size: 1em;
+  }
+} 
