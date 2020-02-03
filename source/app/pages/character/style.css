@@ -2,8 +2,8 @@
   max-width: 800px;
   display: flex;
   justify-content: center;
-  min-height: 90vh;
   padding: 20px;
+  margin-top: 20px;
 }
 .picture_container{
   width: 50%;

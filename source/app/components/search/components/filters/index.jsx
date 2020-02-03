@@ -26,8 +26,8 @@ const Filters = props => {
       </div>
       {type === 'character' && (
         <>
-          <div className={style.filter_type_content}>
-            <span onClick={() => setFilterActive(!filterActive)}>Filters</span>
+          <div className={style.filter_type_content} style={{ cursor: 'pointer' }}>
+            <span onClick={() => setFilterActive(!filterActive)}>Filters {filterActive ? '⬆' : '⬇'}</span>
           </div>
           {filterActive && (
             <>

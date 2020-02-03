@@ -9,8 +9,22 @@
   cursor: pointer;
 }
 .option_selected{
-  border-bottom: 2px solid red;
+  border-bottom: currentColor;
+  color: #fff;
+  background: #00afc7;
+  padding: 3px;
+  border-radius: 3px;
 }
 .option:hover{
   transform: scale(1.1);
+}
+@media screen and (max-width: 480px){
+  .option {
+    margin-left: 7px;
+  }
+  .filter_type_content {
+    font-size: .87em;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
