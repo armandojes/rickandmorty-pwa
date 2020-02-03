@@ -11,7 +11,7 @@ const Filters = props => {
   // definir filtros
   const statuses = ['all', 'alive', 'dead', 'unknown']
   const genders = ['all', 'female', 'male', 'genderless', 'unknown']
-  const species = ['all', 'humans', 'aliens', 'mythologs', 'robots', 'vampires']
+  const species = ['all', 'human', 'alien', 'mytholog', 'robot', 'vampire']
 
   return (
     <div className={style.filters_content}>
@@ -56,8 +56,8 @@ const Filters = props => {
                 Species: {species.map(specie => (
                   <div
                     key={specie}
-                    className={`${style.option} ${filters.specie === specie ? style.option_selected : ''}`}
-                    onClick={() => { dispatch(setFilters({ specie })) }}
+                    className={`${style.option} ${filters.species === specie ? style.option_selected : ''}`}
+                    onClick={() => { dispatch(setFilters({ species: specie })) }}
                   >
                     {specie}
                   </div>
