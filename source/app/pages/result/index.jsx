@@ -5,7 +5,7 @@ import ListCharacters from 'components/list_characters'
 import ListEpisodes from 'components/list_episodes'
 
 const Result = () => {
-  const { loading, type, error, currentPage, items, filters } = useSelector(state => state.search)
+  const { loading, type, error, currentPage, items, filters, pages } = useSelector(state => state.search)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Result = () => {
     } else {
       dispatch(searchCharacter())
     }
-  }, [type, filters])
+  }, [type, filters, currentPage])
 
   if (type === 'episode') {
     return (
@@ -32,6 +32,7 @@ const Result = () => {
         error={error}
         currentPage={currentPage}
         items={items}
+        pages={pages}
       />
     )
   }

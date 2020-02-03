@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import style from './style'
-import Container from 'components/Container'
-import Character from 'components/character'
-import Paginate from 'components/paginate'
+import Container from './node_modules/components/Container'
+import Character from './node_modules/components/character'
+import Paginate from './node_modules/components/paginate'
 
 const ListCharacters = props => {
   if (props.loading) {

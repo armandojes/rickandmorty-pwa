@@ -11,6 +11,7 @@ const SET_TYPE = duck.defineType('SET_TYPE')
 const SET_QUERY = duck.defineType('SET_QUERY')
 const SET_FILTERS = duck.defineType('SET_FILTERS')
 const SET_CURRENTPAGE = duck.defineType('SET_CURRENTPAGE')
+const SET_PAGES = duck.defineType('SET_PAGES')
 
 // creadores de acciones
 const setLoading = duck.createAction(SET_LOADING)
@@ -20,6 +21,7 @@ export const setQuery = duck.createAction(SET_QUERY)
 export const setType = duck.createAction(SET_TYPE)
 export const setFilters = duck.createAction(SET_FILTERS)
 export const setCurrentPage = duck.createAction(SET_CURRENTPAGE)
+const setPages = duck.createAction(SET_PAGES)
 
 // acciones asyncronas
 export const searchEpisodes = () => async (dispatch, getState) => {
@@ -31,14 +33,15 @@ export const searchEpisodes = () => async (dispatch, getState) => {
     dispatch(setError(response.error))
   } else {
     dispatch(setItems(response.results))
+    dispatch(setPages(response.info.pages))
   }
 }
 
 export const searchCharacter = () => async (dispatch, getState) => {
   dispatch(setLoading())
   const state = getState()
-  const { query, filters } = state.search
-  const filter = { name: query }
+  const { query, filters, currentPage } = state.search
+  const filter = { name: query, page: currentPage }
   if (filters.gender !== 'all') { filter.gender = filters.gender }
   if (filters.status !== 'all') { filter.status = filters.status }
   if (filters.species !== 'all') { filter.species = filters.species }
@@ -47,12 +50,14 @@ export const searchCharacter = () => async (dispatch, getState) => {
     dispatch(setError(response.error))
   } else {
     dispatch(setItems(response.results))
+    dispatch(setPages(response.info.pages))
   }
 }
 
 // estado inicial
 const initialState = {
   query: '',
+  pages: 1,
   loading: false,
   items: [],
   error: false,
@@ -69,7 +74,7 @@ const initialState = {
 export default duck.createReducer({
   [SET_TYPE]: (state, { payload }) => {
     return {
-      ...state,
+      ...initialState,
       type: payload
     }
   },
@@ -84,6 +89,7 @@ export default duck.createReducer({
   [SET_FILTERS]: (state, { payload }) => {
     return {
       ...state,
+      currentPage: 1,
       filters: { ...state.filters, ...payload }
     }
   },
@@ -97,6 +103,7 @@ export default duck.createReducer({
     return {
       ...state,
       items: [],
+      pages: 0,
       loading: false,
       error: payload
     }
@@ -107,6 +114,18 @@ export default duck.createReducer({
       loading: false,
       error: false,
       items: payload
+    }
+  },
+  [SET_PAGES]: (state, { payload }) => {
+    return {
+      ...state,
+      pages: payload
+    }
+  },
+  [SET_CURRENTPAGE]: (state, { payload }) => {
+    return {
+      ...state,
+      currentPage: payload
     }
   }
 }, initialState)

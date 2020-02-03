@@ -1,13 +1,44 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import style from './style'
 import Container from 'components/Container'
+import Character from 'components/character'
+import Paginate from 'components/paginate'
 
-const ListEpisodes = props => {
+const ListCharacters = props => {
+  if (props.loading) {
+    return (
+      <Container className={style.container}>
+        <Character loading={props.loading} />
+        <Character loading={props.loading} />
+        <Character loading={props.loading} />
+        <Character loading={props.loading} />
+      </Container>
+    )
+  }
   return (
     <Container>
-      <h1>hello</h1>
+      <div className={style.container}>
+        {props.items.map(item =>
+          <Character
+            key={item.id}
+            loading={props.loading}
+            {...item}
+          />
+        )}
+      </div>
+      <Paginate
+        pages={props.pages}
+        currentPage={props.currentPage}
+      />
     </Container>
   )
 }
 
-export default ListEpisodes
+ListCharacters.propTypes = {
+  loading: propTypes.bool,
+  items: propTypes.array,
+  pages: propTypes.number,
+  currentPage: propTypes.number
+}
+export default ListCharacters

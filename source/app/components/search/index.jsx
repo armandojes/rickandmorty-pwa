@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './style'
 import Container from 'components/container'
 import Filters from './components/filters'
-import { searchEpisodes, setQuery, searchCharacter } from 'ducks/search'
+import { searchEpisodes, setQuery, searchCharacter, setCurrentPage } from 'ducks/search'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -13,6 +13,7 @@ const Search = () => {
   const dispatch = useDispatch()
 
   const handlerSubmit = e => {
+    dispatch(setCurrentPage(1))
     e.preventDefault()
     if (type === 'episode') {
       dispatch(searchEpisodes())
