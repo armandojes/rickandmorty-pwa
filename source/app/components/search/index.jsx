@@ -31,20 +31,21 @@ const Search = () => {
   }
 
   return (
-    <Container className={style.content}>
-      <form className={style.form} onSubmit={handlerSubmit}>
-        <input
-          value={query}
-          onChange={e => dispatch(setQuery(e.target.value))}
-          onFocus={handlerFocus}
-          type='text'
-          className={style.input}
-        />
-        <button className={style.buton} type='submit'>Search</button>
-      </form>
-      {focus && (
-        <Filters />
-      )}
+    <Container>
+      <div onClick={handlerFocus} className={style.content}>
+        <form className={style.form} onSubmit={handlerSubmit}>
+          <input
+            value={query}
+            onChange={e => dispatch(setQuery(e.target.value))}
+            type='text'
+            className={style.input}
+          />
+          <button className={style.buton} type='submit'>Search</button>
+        </form>
+        {focus && (
+          <Filters />
+        )}
+      </div>
     </Container>
   )
 }
