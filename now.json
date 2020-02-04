@@ -1,0 +1,14 @@
+{
+  "alias": "armandojes-rickandmorty",
+  "name": "rickandmorty",
+  "version": 2,
+  "builds": [
+    { "src": "./public/*", "use": "@now/static"},
+    { "src": "./public/images/*", "use": "@now/static"}
+
+  ],
+  "routes": [
+    { "src": "/public/(.*)","dest": "/public/$1" },
+    { "src": "(.*)", "dest": "/public/index.html" }
+  ]
+}
