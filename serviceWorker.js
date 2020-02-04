@@ -2,7 +2,7 @@
 this.addEventListener('install', function (event) {
   event.waitUntil(
     // eslint-disable-next-line no-undef
-    caches.open('v1.2').then(function (cache) {
+    caches.open('v1.3').then(function (cache) {
       return cache.addAll([
         '/',
         '/public/index.html',

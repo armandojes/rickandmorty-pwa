@@ -13,10 +13,10 @@ const View = props => (
     <ListCharacters
       loading={props.loading}
       items={props.characters}
-      title='Latest Charactres'
+      title='Latest Characters'
     />
     <ListEpisodes
-      title='Latest episodes'
+      title='Latest Episodes'
       loading={props.loading}
       items={props.episodes}
     />
