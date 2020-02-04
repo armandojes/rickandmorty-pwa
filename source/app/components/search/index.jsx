@@ -1,26 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './style'
 import Container from 'components/container'
-import Filters from './components/filters'
-import { searchEpisodes, setQuery, searchCharacter, setCurrentPage } from 'ducks/search'
+import Filters from './filters'
+import { searchEpisodes, setQuery, searchCharacter, setCurrentPage, setInitialState } from 'ducks/search'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 const Search = () => {
   const [focus, setFocus] = useState(false)
-  const { query, type } = useSelector(state => state.search)
+  const { query, type, filters } = useSelector(state => state.search)
   const { location, push } = useHistory()
   const dispatch = useDispatch()
 
   const handlerSubmit = e => {
     dispatch(setCurrentPage(1))
     e.preventDefault()
+    dispatch(setInitialState())
     if (type === 'episode') {
       dispatch(searchEpisodes())
     } else {
       dispatch(searchCharacter())
     }
   }
+
+  // volver a la lista de resultados cuando cambie los filtros
+  useEffect(() => {
+    handlerFocus()
+  }, [query, type, filters])
 
   const handlerFocus = (e) => {
     setFocus(true)

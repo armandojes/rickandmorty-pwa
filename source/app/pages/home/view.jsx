@@ -10,8 +10,10 @@ const View = props => (
     <ListCharacters
       loading={props.loading}
       items={props.characters}
+      title="Latest Charactres"
     />
     <ListEpisodes
+      title="Latest episodes"
       loading={props.loading}
       items={props.episodes}
     />

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { searchEpisodes, searchCharacter } from 'ducks/search'
 import ListCharacters from 'components/list_characters'
 import ListEpisodes from 'components/list_episodes'
+import Error404 from 'components/error404'
 
 const Result = () => {
   const { loading, type, error, currentPage, items, filters, pages } = useSelector(state => state.search)
@@ -15,6 +16,12 @@ const Result = () => {
       dispatch(searchCharacter())
     }
   }, [type, filters, currentPage])
+
+  if (error) {
+    return (
+      <Error404 title={error} />
+    )
+  }
 
   if (type === 'episode') {
     return (

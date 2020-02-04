@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from './style'
+import style from './filters.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { setType, setFilters } from 'ducks/search'
 

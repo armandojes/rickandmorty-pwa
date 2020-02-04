@@ -12,8 +12,10 @@ const SET_QUERY = duck.defineType('SET_QUERY')
 const SET_FILTERS = duck.defineType('SET_FILTERS')
 const SET_CURRENTPAGE = duck.defineType('SET_CURRENTPAGE')
 const SET_PAGES = duck.defineType('SET_PAGES')
+const SET_INITIAL_STATE = duck.defineType('SET_INITIAL_STATE')
 
 // creadores de acciones
+const setPages = duck.createAction(SET_PAGES)
 const setLoading = duck.createAction(SET_LOADING)
 const setError = duck.createAction(SET_ERROR)
 const setItems = duck.createAction(SET_ITEMS)
@@ -21,7 +23,7 @@ export const setQuery = duck.createAction(SET_QUERY)
 export const setType = duck.createAction(SET_TYPE)
 export const setFilters = duck.createAction(SET_FILTERS)
 export const setCurrentPage = duck.createAction(SET_CURRENTPAGE)
-const setPages = duck.createAction(SET_PAGES)
+export const setInitialState = duck.createAction(SET_INITIAL_STATE)
 
 // acciones asyncronas
 export const searchEpisodes = () => async (dispatch, getState) => {
@@ -126,6 +128,13 @@ export default duck.createReducer({
     return {
       ...state,
       currentPage: payload
+    }
+  },
+  [SET_INITIAL_STATE]: (state, { payload }) => {
+    return {
+      ...initialState,
+      query: state.query,
+      type: state.type
     }
   }
 }, initialState)
