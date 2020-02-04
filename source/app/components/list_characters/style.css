@@ -4,3 +4,9 @@
   align-items: stretch;
   flex-wrap: wrap;
 }
+@media screen and (max-width:400px){
+  .title{
+    font-size: 1.2em;
+    text-align: center;
+  }
+}

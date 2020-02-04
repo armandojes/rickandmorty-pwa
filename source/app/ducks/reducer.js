@@ -6,11 +6,13 @@ import { combineReducers } from 'redux'
 import character from './character'
 import episode from './episode'
 import search from './search'
+import home from './home'
 
 export default combineReducers(
   {
     character,
     episode,
-    search
+    search,
+    home
   }
 )

@@ -6,6 +6,7 @@ import Character from 'components/character'
 import Paginate from 'components/paginate'
 
 const ListCharacters = props => {
+  // si esta cargando renderizar shgell
   if (props.loading) {
     return (
       <Container className={style.container}>
@@ -16,8 +17,11 @@ const ListCharacters = props => {
       </Container>
     )
   }
+
+  // reder de la vista con los datos
   return (
     <Container>
+      <h1 className={style.title}>{props.title || 'Characters'}</h1>
       <div className={style.container}>
         {props.items.map(item =>
           <Character
@@ -28,17 +32,19 @@ const ListCharacters = props => {
         )}
       </div>
       <Paginate
-        pages={props.pages}
-        currentPage={props.currentPage}
+        pages={props.pages || 1}
+        currentPage={props.currentPage || 1}
       />
     </Container>
   )
 }
 
+// definir propsTypes
 ListCharacters.propTypes = {
   loading: propTypes.bool,
   items: propTypes.array,
   pages: propTypes.number,
-  currentPage: propTypes.number
+  currentPage: propTypes.number,
+  title: propTypes.string
 }
 export default ListCharacters

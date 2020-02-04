@@ -6,6 +6,7 @@ import Episode from 'components/episode'
 import Paginate from 'components/paginate'
 
 const ListEpisodes = props => {
+  // renderizar shell mientras esta cargando los datos
   if (props.loading) {
     return (
       <Container className={style.container}>
@@ -15,8 +16,11 @@ const ListEpisodes = props => {
       </Container>
     )
   }
+
+  // render de elementos con los datos
   return (
     <Container>
+      <h1 className={style.title}>{props.title || 'Episodes'}</h1>
       <div className={style.container}>
         {props.items.map(item =>
           <Episode
@@ -27,18 +31,20 @@ const ListEpisodes = props => {
         )}
       </div>
       <Paginate
-        pages={props.pages}
-        currentPage={props.currentPage}
+        pages={props.pages || 1}
+        currentPage={props.currentPage || 1}
       />
     </Container>
   )
 }
 
+// definir propTypes
 ListEpisodes.propTypes = {
   loading: propTypes.bool,
   items: propTypes.array,
   pages: propTypes.number,
-  currentPage: propTypes.number
+  currentPage: propTypes.number,
+  title: propTypes.string
 }
 
 export default ListEpisodes

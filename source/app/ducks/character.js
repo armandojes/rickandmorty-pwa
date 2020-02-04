@@ -15,6 +15,7 @@ export const setError = duck.createAction(SET_ERROR)
 
 // creadores de acciones asyncronos
 export const loadCharacter = id => async dispatch => {
+  dispatch(setLoading(true))
   const response = await getCharacter(parseInt(id))
   dispatch(setCharacter(response))
 }
@@ -30,7 +31,7 @@ const initialState = {
 export default duck.createReducer({
   [SET_LOADING]: (state, { payload }) => {
     return {
-      ...state,
+      ...initialState,
       loading: true
     }
   },
@@ -48,4 +49,4 @@ export default duck.createReducer({
       data: null
     }
   },
-}, initialState);
+}, initialState)

@@ -24,7 +24,6 @@ const Search = () => {
 
   const handlerFocus = (e) => {
     setFocus(true)
-    console.log(location.pathname)
     if (location.pathname !== '/results') {
       push('/results')
     }
