@@ -10,6 +10,7 @@
   align-items: stretch;
   height: 35px;
   outline: none;
+  width: 100%;
 }
 .input{
   width: 85%;

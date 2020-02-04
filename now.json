@@ -4,11 +4,12 @@
   "version": 2,
   "builds": [
     { "src": "./public/*", "use": "@now/static"},
-    { "src": "./public/images/*", "use": "@now/static"}
-
+    { "src": "./public/images/*", "use": "@now/static"},
+    { "src": "./serviceWorker.js", "use": "@now/static"}
   ],
   "routes": [
     { "src": "/public/(.*)","dest": "/public/$1" },
+    { "src": "/serviceWorker.js","dest": "/serviceWorker.js"},
     { "src": "(.*)", "dest": "/public/index.html" }
   ]
 }

@@ -34,13 +34,16 @@ const Search = () => {
     <Container>
       <div onClick={handlerFocus} className={style.content}>
         <form className={style.form} onSubmit={handlerSubmit}>
-          <input
-            value={query}
-            onChange={e => dispatch(setQuery(e.target.value))}
-            type='text'
-            className={style.input}
-          />
-          <button className={style.buton} type='submit'>Search</button>
+          <label htmlFor='input' className={style.form}>
+            <input
+              id='input'
+              value={query}
+              onChange={e => dispatch(setQuery(e.target.value))}
+              type='text'
+              className={style.input}
+            />
+            <button className={style.buton} type='submit'>Search</button>
+          </label>
         </form>
         {focus && (
           <Filters />

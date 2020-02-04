@@ -7,7 +7,11 @@ const Header = () => (
   <header className={style.header}>
     <Container className={style.content}>
       <Link to='/'>
-        <img className={style.logo} src='/public/logo.png' />
+        <img
+          className={style.logo}
+          src='/public/logo.png'
+          alt='logo name'
+        />
       </Link>
     </Container>
   </header>

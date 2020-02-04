@@ -18,7 +18,11 @@ const Character = props => {
   return (
     <Link className={style.content} to={`/episode/${props.id}`}>
       <div className={style.body}>
-        <img src={`/public/images/${props.id}.jpg`} className={style.picture} />
+        <img
+          src={`/public/images/${props.id}.jpg`}
+          className={style.picture}
+          alt={props.name}
+        />
         <h3 className={style.name}>{props.name}</h3>
       </div>
     </Link>

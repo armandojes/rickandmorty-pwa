@@ -18,7 +18,11 @@ const Character = props => {
   return (
     <Link className={style.content} to={`/character/${props.id}`}>
       <div className={style.body}>
-        <img src={props.image} className={style.picture} />
+        <img
+          src={props.image}
+          className={style.picture}
+          alt={props.name}
+        />
         <h3 className={style.name}>{props.name}</h3>
       </div>
     </Link>
