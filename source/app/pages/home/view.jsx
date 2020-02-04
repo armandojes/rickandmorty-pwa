@@ -7,13 +7,16 @@ import ListEpisodes from 'components/list_episodes'
 
 const View = props => (
   <Container className={style.container}>
+    <section className={style.landing}>
+      Welcome to Rick and Morty Dex
+    </section>
     <ListCharacters
       loading={props.loading}
       items={props.characters}
-      title="Latest Charactres"
+      title='Latest Charactres'
     />
     <ListEpisodes
-      title="Latest episodes"
+      title='Latest episodes'
       loading={props.loading}
       items={props.episodes}
     />

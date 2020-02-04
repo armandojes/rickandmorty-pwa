@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import style from './style'
 import Container from 'components/container'
 import Filters from './filters'
@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 const Search = () => {
   const [focus, setFocus] = useState(false)
-  const { query, type, filters } = useSelector(state => state.search)
+  const { query, type } = useSelector(state => state.search)
   const { location, push } = useHistory()
   const dispatch = useDispatch()
 
@@ -22,11 +22,6 @@ const Search = () => {
       dispatch(searchCharacter())
     }
   }
-
-  // volver a la lista de resultados cuando cambie los filtros
-  useEffect(() => {
-    handlerFocus()
-  }, [query, type, filters])
 
   const handlerFocus = (e) => {
     setFocus(true)
