@@ -7,7 +7,8 @@
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack  --mode production",
     "server": "static-server -z --port 3000 --index public/index.html -n public/index.html",
-    "deploy": "npm run build && now --prod"
+    "deploy": "npm run build && now --prod",
+    "start": "npm run build && npm run server"
   },
   "author": "armando de jesus",
   "license": "MIT",
