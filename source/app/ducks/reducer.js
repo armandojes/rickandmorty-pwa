@@ -1,5 +1,4 @@
 // reducer principal de toda la aplicacion
-
 import { combineReducers } from 'redux'
 
 // reducers

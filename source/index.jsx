@@ -34,6 +34,7 @@ const Client = () => (
 
 render(<Client />, document.getElementById('render_target'))
 
+// arrancar service worker
 if (isProduction && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('/serviceWorker.js')
     .then(function (reg) {

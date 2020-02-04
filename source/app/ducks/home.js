@@ -15,7 +15,6 @@ export const setItems = duck.createAction(SET_ITEMS)
 export const loadItems = () => async dispatch => {
   dispatch(setLoading())
   const [characters, episodes] = await Promise.all([getCharacter({ page: 25 }), getEpisode({ page: 2 })])
-  console.log(characters.results.slice(-4))
   dispatch(setItems({
     characters: characters.results.slice(-4),
     episodes: episodes.results.slice(-3)
