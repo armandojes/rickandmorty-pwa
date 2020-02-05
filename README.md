@@ -10,7 +10,7 @@ https://armandojes-rickandmorty.now.sh/
 - **npm start** construye el proyecto y el servidor
 - **npm run deploy** construye el proyecto y lo envia a produccion con now.sh
 
-Para arrancar este proyecto en tu computador solo clona el repositorio, ejecuta install luego npm start y acontinuacion abrir el navegador.
+Para arrancar este proyecto en tu computador solo clona el repositorio, ejecuta npm install luego npm start y acontinuacion abrir el navegador.
 
 ## caracteristicas 
 - Progresive web aplication instalable en dispositivos moviles
